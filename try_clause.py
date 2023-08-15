@@ -1,4 +1,6 @@
-class try_clas:
+import pandas as pd
+
+class try_class:
     
     def __init__(self):
         print("The constructor")
@@ -35,11 +37,19 @@ class try_clas:
                 
                 result = number_1/number_2
                 
+                if number_2 == 0: 
+                    print("No valid")
+                    number_2 = int(input("Enter denominator"))
+                
                 if number_1 >= 0 and number_2 >= 0:
                     print("integer Numbers")
                 else:
                     raise Exception("Negative number")
-                    #print("negative number")
+                
+                if number_1 <= 12:
+                     print("integer Numbers, valid")
+                else:
+                    raise Exception("> than 12")
             
             except ZeroDivisionError as e:
                 print("Zero Division Error: ", e)
@@ -48,25 +58,25 @@ class try_clas:
                 #se ejcutará solo si ninguna except sucede
             else:
                 print("Else was executed because an exception not occurred")
+                print("The result is",result)
                 break
             finally:
-                print("The result is",result)
                 print("finally always executes")
                 
     def raise_example_two(self):
-        s = 'apple'
+        s = "apple"
 
         try:
-            num = int(s)
+            num = list(s)
         except:
-            print("problem")
+            print("problem: ")
             raise
             
 
 if __name__ == '__main__':
     
-    obj = try_clas()
+    obj = try_class()
     
-    obj.divide()
-    #obj.divide_raise()
+    #obj.divide()
+    obj.divide_raise()
     #obj.raise_example_two()
